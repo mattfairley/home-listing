@@ -1,11 +1,12 @@
 import React from 'react';
-import { SearchContainer } from './search/SearchContainer.component';
+import Box from '@material-ui/core/Box';
+import Search from './search/SearchContainer.connect';
 
 function App() {
   return (
-    <div className="app">
-      <SearchContainer />
-    </div>
+    <Box className="app">
+      <Search />
+    </Box>
   );
 }
 

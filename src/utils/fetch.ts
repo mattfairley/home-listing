@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+import qs from 'qs';
 import { ToResponse } from '../types';
 
 const makeFetch = (url: string, req: RequestInit) =>
@@ -23,8 +24,13 @@ const makeFetch = (url: string, req: RequestInit) =>
       .catch((error: Error) => reject(error));
   });
 
-export function get(url: string): Promise<unknown> {
-  return makeFetch(url, {
+export function get(
+  url: string,
+  queryParams?: { [key: string]: any },
+): Promise<unknown> {
+  const queryString = qs.stringify(queryParams);
+  const fullUrl = queryString ? `${url}?${queryString}` : url;
+  return makeFetch(fullUrl, {
     method: 'get',
   });
 }
