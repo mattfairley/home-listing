@@ -29,6 +29,10 @@ export const mapDispatchToProps = (dispatch) => {
     getListings: () => dispatch(getListings()),
     changeFilter: (filter, value) => dispatch(changeFilter(filter, value)),
     changeQuery: (val) => dispatch(changeLocationQuery(val)),
+    changePriceRange: ([minPrice, maxPrice]) => {
+      dispatch(changeFilter('minPrice', minPrice));
+      dispatch(changeFilter('maxPrice', maxPrice));
+    },
   };
 };
 

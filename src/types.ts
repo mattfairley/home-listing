@@ -1,9 +1,11 @@
 import { SearchState } from './search/deps/search.types';
+import { ListingsState } from './listings/deps/listings.types';
 
 export type ToResponse<T> = [Error?, T?];
 
 export interface AppState {
   search: SearchState;
+  listings: ListingsState;
 }
 
 export type PROVINCES = 'on' | 'ab';
@@ -21,6 +23,6 @@ export interface Listing {
   baths?: number;
   bedrooms?: number;
   price: number;
-  photoUrl: string;
+  photoUrl?: string;
   address: Address;
 }

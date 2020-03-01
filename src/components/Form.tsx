@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const Form = ({ onSubmit, children, className }) => {
+export const Form = ({ onSubmit, children, className = '' }) => {
   return (
     <form
       className={className}

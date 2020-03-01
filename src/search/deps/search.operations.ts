@@ -19,8 +19,8 @@ export const changeLocationQuery = (query: string) => (dispatch, getState) => {
 };
 
 export const getListings = () => async (dispatch, getState) => {
-  dispatch(requestListings());
   const { search } = getState();
+  dispatch(requestListings());
   const queryParams = {
     minBaths: search.minBaths,
     minRooms: search.minRooms,
@@ -39,6 +39,7 @@ export const getListings = () => async (dispatch, getState) => {
     }?,
   ] = await to(get('/api/listings', queryParams));
   if (err || !response.data) {
+    // Todo error handling would go here, displaying an error message of some variety by setting it in state
     console.log(err);
     return;
   }

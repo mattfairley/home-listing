@@ -2,7 +2,7 @@ import { SEARCH_TYPES } from '../../search/deps/search.types';
 import { ListingsState } from './listings.types';
 
 const initialState: Readonly<ListingsState> = {
-  listings: { ids: [], data: {} },
+  listingsData: { ids: [], data: {} },
   totalMatches: 0,
   nextKey: null,
   activeListing: null,
@@ -18,7 +18,7 @@ export const listingsReducer = (
         ...state,
         nextKey: action.payload.nextKey,
         totalMatches: action.payload.totalMatches,
-        listings: action.payload.listings,
+        listingsData: action.payload.listings,
       };
     }
     default:

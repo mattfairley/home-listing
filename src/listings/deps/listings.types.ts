@@ -8,7 +8,7 @@ export interface ListingsState {
   activeListing: string;
   totalMatches: number;
   nextKey: string;
-  listings: {
+  listingsData: {
     ids: string[];
     data: {
       [id: string]: Listing;
